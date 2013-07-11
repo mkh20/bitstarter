@@ -1,8 +1,10 @@
+#!/usr/bin/env node
 var fs = require( 'fs' );
 var express = require('express');
 
-var buffer  = new Buffer(50);
-buffer.write(fs.readFileSync('index.html', 'utf-8'));
+var indexOut = fs.readFileSync('index.html', 'utf-8');
+var buffer  = new Buffer(indexOut.length());
+buffer.write(indexOut);
 var result = buffer.toString("utf-8");
 console.log(result);
 
